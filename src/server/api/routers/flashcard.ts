@@ -82,4 +82,25 @@ export const flashcardRouter = createTRPCRouter({
       }
       return flashcardSet;
     }),
+
+  deleteFlashcardSet: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const flashcardSet = await ctx.db.flashcardSet.findFirst({
+        where: {
+          id: input.id,
+          userId: ctx.session.user.id,
+        },
+      });
+
+      if (!flashcardSet) {
+        throw new Error("Flashcard set not found");
+      }
+
+      await ctx.db.flashcardSet.delete({
+        where: { id: input.id },
+      });
+
+      return { success: true };
+    }),
 });

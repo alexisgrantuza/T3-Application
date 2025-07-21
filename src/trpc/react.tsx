@@ -9,6 +9,7 @@ import SuperJSON from "superjson";
 
 import { type AppRouter } from "~/server/api/root";
 import { createQueryClient } from "./query-client";
+import { SessionProvider } from "next-auth/react";
 
 let clientQueryClientSingleton: QueryClient | undefined = undefined;
 const getQueryClient = () => {
@@ -65,7 +66,19 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <api.Provider client={trpcClient} queryClient={queryClient}>
-        {props.children}
+        {/* Provide the TRPC client to the context */}
+        {/* This allows you to use `useTRPC` hooks in your components */}
+        {/* You can also use `HydrateClient` if you need to hydrate server-side data
+
+          * <HydrateClient state={pageProps.dehydratedState}> */}
+        {/* </HydrateClient> */}
+        {/* Use the `api` object to access your TRPC hooks */}
+        {/* Example: const { data, isLoading } = api.example.hello.useQuery({
+          text: "Hello from TRPC",
+        }); */}
+        {/* Render your application components */}
+        {/* This is where your app's main content will go */}
+        <SessionProvider>{props.children}</SessionProvider>
       </api.Provider>
     </QueryClientProvider>
   );

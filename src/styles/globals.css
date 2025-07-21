@@ -1,10 +1,15 @@
 @import "tailwindcss";
+
+@import "uploadthing/tw/v4";
+@source "../node_modules/@uploadthing/react/dist"; /** <-- depends on your project structure */
+
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -122,4 +127,97 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes drawPath1 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawPath2 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawPath3 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawPath4 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawPath5 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawPath6 {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fingerprint-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.fingerprint-path.animate {
+  animation: drawPath1 1.5s ease-in-out forwards;
+}
+
+.fingerprint-path.animate:nth-child(1) {
+  animation: drawPath1 1.5s ease-in-out forwards;
+  animation-delay: 0.1s;
+}
+
+.fingerprint-path.animate:nth-child(2) {
+  animation: drawPath2 1.5s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+
+.fingerprint-path.animate:nth-child(3) {
+  animation: drawPath3 1.5s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+.fingerprint-path.animate:nth-child(4) {
+  animation: drawPath4 1.5s ease-in-out forwards;
+  animation-delay: 0.4s;
+}
+
+.fingerprint-path.animate:nth-child(5) {
+  animation: drawPath5 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+.fingerprint-path.animate:nth-child(6) {
+  animation: drawPath6 1.5s ease-in-out forwards;
+  animation-delay: 0.6s;
 }
