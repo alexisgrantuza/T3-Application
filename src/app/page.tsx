@@ -2,6 +2,7 @@ import { auth } from "~/server/auth";
 import { api, HydrateClient } from "~/trpc/server";
 import { FileUploadDemo } from "~/components/FileUploadDemo";
 import Navbar from "~/components/Navbar";
+import FlashcardList from "~/components/FlashcardList";
 
 export default async function Home() {
   const session = await auth();
@@ -9,6 +10,7 @@ export default async function Home() {
   if (session?.user) {
     void api.post.getLatest.prefetch();
   }
+
 
   return (
     <HydrateClient>
@@ -28,6 +30,11 @@ export default async function Home() {
           <p className="text-lg text-gray-400">
             Supported formats: .txt, .pdf, .docx
           </p>
+        </div>
+
+        <div className="container px-4 py-8">
+          <h2 className="mb-6 text-2xl font-bold">Your Flashcards</h2>
+          <FlashcardList />
         </div>
       </main>
     </HydrateClient>

@@ -6,7 +6,6 @@ import { useDropzone } from "react-dropzone";
 import { Buffer } from "buffer";
 import { api } from "~/trpc/react";
 import { GridPattern } from "~/components/ui/grid-pattern";
-import { useUploadThing } from "~/utils/uploadthing";
 
 const mainVariant = {
   initial: {
@@ -43,8 +42,6 @@ export const FileUpload = ({
   const [files, setFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
-
-  const { startUpload } = useUploadThing(endpoint);
 
   const createFlashcards = api.flashcard.createFlashcards.useMutation({
     onSuccess: (data) => {

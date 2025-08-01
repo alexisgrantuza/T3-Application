@@ -33,6 +33,7 @@ export const flashcardRouter = createTRPCRouter({
           description: description ?? "No description provided",
           fileName: input.fileName,
           fileType: input.fileType,
+          fileData: fileData,
           userId: ctx.session.user.id,
           flashcards: {
             create: flashcards.map((card) => ({
