@@ -1,8 +1,10 @@
 export default function Navbar() {
-  /*Test not yet fully build */
   return (
-    <nav className="bg-pink-300 p-4 text-white">
-      <h1 className="text-lg font-bold">Flashi</h1>
+    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300">
+      <div className="flex items-center justify-between px-6 py-4">
+        <h1 className="text-lg font-bold text-white">Flashi</h1>
+        {/* Add navigation links or buttons here */}
+      </div>
     </nav>
   );
 }
