@@ -20,7 +20,6 @@ This application allows users to upload documents (PDF, DOCX, TXT) and automatic
 ## 🏗️ System Architecture
 
 ### Architecture Diagram
-
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                         CLIENT LAYER                             │
